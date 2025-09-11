@@ -34,7 +34,7 @@ print("Predict(before training):",num_data,forward(num_data).item())
 for epoch in range(2000):
   for x,y in zip(x_data,y_data):
     l=loss(x,y)
-    l.backward()
+    l.backward()#释放计算图，防止内存过载
     
     print("\tgrad:",x,y,a.grad.item(),b.grad.item(),c.grad.item(),d.grad.item(),e.grad.item())
     
@@ -42,7 +42,7 @@ for epoch in range(2000):
     b.data-=0.000008*b.grad.data
     c.data-=0.005*c.grad.data
     d.data-=0.000008*d.grad.data
-    e.data-=0.005*e.grad.data
+    e.data-=0.005*e.grad.data#计算率不能过大，太大会使得训练不能收敛
     
     a.grad.data.zero_()
     b.grad.data.zero_()
@@ -54,4 +54,5 @@ for epoch in range(2000):
   time.sleep(0.5)
 
 print("Predict(after training):",num_data,forward(num_data).item())
+
     
