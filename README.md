@@ -6,3 +6,4 @@ grad_training这个文件夹放置梯度下降那个课程的一些自己写的�
 
 back_propagation这个文件夹放置反向传播课程的代码，开始利用torch库，需要注意配置环境
 
+linear regression这个文件夹除了用pytorch进行一次函数的线性回归，还有二次函数和一般函数的模型训练
